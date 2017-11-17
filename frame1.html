@@ -10,7 +10,6 @@
 <script type="text/javascript">
 
 window.addEventListener('message', function(event) {
-   //console.log(event);
    console.log('message received:  ' + event.data, event);
    event.source.postMessage('pong!', event.origin);
    document.getElementById('1').innerHTML = event.data;

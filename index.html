@@ -12,7 +12,6 @@
 <script type="text/javascript">
 var iframe = document.getElementById('1').contentWindow;
 
-//periodical message sender
 setInterval(function(){
    var message = 'Ping! ' + new Date();
    iframe.postMessage(message, 'http://localhost:8000/frame1.html'); //send the message and target URI
@@ -20,7 +19,6 @@ setInterval(function(){
 },6000);
 
 window.addEventListener('message', function(event) {
-   //console.log(event);
    console.log('message received:  ' + event.data, event);
    document.getElementById('main').innerHTML = event.data;
 },false);

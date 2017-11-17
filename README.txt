@@ -1,0 +1,8 @@
+= Postmessage sample
+
+run with:
+
+----
+python(3) -m http.server
+google-chrome index.html
+----

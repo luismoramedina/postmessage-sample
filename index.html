@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+
+<div id="main">main</div>
+<iframe src="frame1.html" height="200" width="300" id="1"></iframe>
+<iframe src="frame2.html" height="200" width="300" id="2"></iframe>
+
+</body>
+
+<script type="text/javascript">
+var iframe = document.getElementById('1').contentWindow;
+
+//periodical message sender
+setInterval(function(){
+   var message = 'Ping! ' + new Date();
+   iframe.postMessage(message, 'http://localhost:8000/frame1.html'); //send the message and target URI
+   console.log('message sent from index');
+},6000);
+
+window.addEventListener('message', function(event) {
+   //console.log(event);
+   console.log('message received:  ' + event.data, event);
+   document.getElementById('main').innerHTML = event.data;
+},false);
+
+   
+</script>
+
+</html>
